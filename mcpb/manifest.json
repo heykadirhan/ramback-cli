@@ -1,0 +1,24 @@
+{
+  "manifest_version": "0.3",
+  "name": "ramback",
+  "display_name": "Ramback",
+  "version": "1.0.3",
+  "description": "See and stop the dev stack on a Mac: simulators, emulators, Gradle, Docker and dev servers, with their RAM.",
+  "author": { "name": "Kadir Yılmaz", "url": "https://ramback.app" },
+  "homepage": "https://ramback.app/cli/",
+  "repository": { "type": "git", "url": "https://github.com/heykadirhan/ramback-cli" },
+  "license": "MIT",
+  "keywords": ["macos", "ios-simulator", "android-emulator", "docker", "dev-server", "memory"],
+  "server": {
+    "type": "binary",
+    "entry_point": "server/ramback",
+    "mcp_config": { "command": "${__dirname}/server/ramback", "args": ["mcp"] }
+  },
+  "tools": [
+    { "name": "list_running", "description": "Simulators, emulators, daemons, containers, dev servers and databases running now, with RAM and whether the agent may stop them." },
+    { "name": "stop", "description": "Stops a row by id or port, or a project's rows. Never pinned rows, databases, builds, or what another agent started." },
+    { "name": "free_memory", "description": "Stops idle simulators, emulators and daemons, biggest first, until about this much RAM is freed." },
+    { "name": "find_free_port", "description": "The first TCP port from start that nothing listens on." }
+  ],
+  "compatibility": { "platforms": ["darwin"] }
+}
